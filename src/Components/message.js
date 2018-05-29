@@ -3,12 +3,12 @@ import React from "react";
 import "./css/message.css";
 import Profile from "./profile";
 
-const Message = () => {
+const Message = (props) => {
 
     return (
         <div className="message">
-            <p>Random Message</p>
-            <Profile/>
+            <p>{props.text}</p>
+            <Profile id={props.id}/>
         </div>
     )
 }

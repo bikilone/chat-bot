@@ -3,13 +3,13 @@ import React from "react";
 import menu from "../img/menu.svg";
 import "./css/button.css";
 
-const Button = () => {
+const Button = (props) => {
 
     return (
         <div className="button">
             <img src={menu} alt="menu"/>
             <input type="text"/>
-            <button>Send |></button>
+            <button onClick={props.bla}>Send |></button>
         </div>
     )
 }

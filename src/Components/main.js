@@ -7,17 +7,7 @@ const Main = (props) => {
 
     return (
         <div className="main">
-            <Message/>
-            <Message/>
-            <Message/>
-            <Message/>
-            <Message/>
-            <Message/>
-            <Message/>
-            <Message/>
-            <Message/>
-            <Message/>
-            <Message/>
+            {props.message.map((element, i) => <Message text={element} key={i} id={i}/>)}
         </div>
     )
 }
