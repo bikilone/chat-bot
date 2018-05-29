@@ -1,9 +1,10 @@
 .header {
-    width: 100vw;
+    width: inherit;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 10px;
+    flex: 1;
 }
 
 .header img {

@@ -1,0 +1,21 @@
+.message p {
+    border-radius: 10px;
+    background-color: blue;
+    color: white;
+    display: inline-block;
+    padding: 20px;
+    /* float: left; */
+    margin: 10px 10px 10px;
+    clear: both;
+}
+
+.message:nth-child(even) {
+    float: right;
+}
+.message:nth-child(odd) {
+    float: left;
+}
+
+.message {
+    clear: both;
+}
