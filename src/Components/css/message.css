@@ -4,14 +4,15 @@
     color: black;
     padding: 20px;
     margin: 10px 10px 10px;
+    min-width: 80px;
 }
 
 .message:nth-child(even) {
-    float: right;
+    float: left;
  
 }
 .message:nth-child(odd) {
-    float: left;
+    float: right;
 
 }
 .message:nth-child(even) p{
@@ -37,6 +38,6 @@
     padding: 5px; 
 }
 
-.message:nth-child(odd) >img{
+.message:nth-child(even) >img{
     order: -1;
 }
