@@ -1,0 +1,15 @@
+.footer {
+    color: grey;
+    margin-right: 10px;
+    margin-left: 10px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.footer span {
+    color: lightgrey;
+}
+
+.footer p {
+    word-wrap: break-word;
+}
