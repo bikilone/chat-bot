@@ -1,0 +1,36 @@
+.button {
+    display: flex;
+    box-sizing: border-box;
+    width: inherit;
+    justify-content: stretch;
+    flex: 1;
+    border: 3px solid blue;
+}
+
+.button img {
+    flex: 1;
+    border-right: 1px solid blue;
+    padding: 10px;
+
+}
+
+.button input {
+    flex: 5;
+    border: none;
+    border-right: 1px solid blue;
+    font-size: 30px;
+    padding: 0 0 5px 5px;
+
+}
+
+.button button {
+    background-color: blue;
+    color: white;
+    font-size: 20px;
+    flex: 2;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    border: none;
+
+}
