@@ -8,8 +8,8 @@ const Button = (props) => {
     return (
         <div className="button">
             <img src={menu} alt="menu"/>
-            <input type="text"/>
-            <button onClick={props.bla}>Send |></button>
+            <input onChange={props.handleChange} type="text" value={props.input} onKeyUp={props.handleSubmit}/>
+            <button onClick={props.handleClick}>Send |></button>
         </div>
     )
 }

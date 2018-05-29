@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { socketConnect } from 'socket.io-react';
-import io from "socket.io-client";
+// import openSocket from 'socket.io-react';
+import openSocket from "socket.io-client";
 
 
 import './App.css';
@@ -19,50 +19,75 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      messages: ["hi", "hello", "jkdas", "dakl"]
+      messages: [],
+      input: ""
     };
-    // this.bla = this.bla.bind(this)
   }
 
-//   componentDidMount() {		
-//     const ws = new WebSocket("wss://git.heroku.com/react-test-task-back.git");
-//   ws.onopen = function() {
-     
-//      // Web Socket is connected, send data using send()
-//      ws.send("Message to send");
-//      alert("Message is sent...");
-//   };
+   socket = openSocket("http://localhost:4000");
 
-//   ws.onmessage = function (evt) { 
-//      var received_msg = evt.data;
-//      alert("Message is received...");
-//   };
+   componentDidMount() {
 
-//   ws.onclose = function() { 
-     
-//      // websocket is closed.
-//      alert("Connection is closed..."); 
-//   };
-// }
+      this.socket.on("connection", (data) => {
+       this.setState({
+          messages: [ data, ...this.state.messages]
+          })
+     })
 
-  
-  
-  
-  
-  render() {
+     this.socket.emit("connection");
+
+     this.socket.on("chat", (data) => {
+        this.setState({
+        messages: [...this.state.messages, data]
+      })
+    })
+
+  }
+
+  handleSubmit = event => { 
+    const body = event.target.value;
+
+    //handling click
     
+    if (event.keyCode === 13 && body) {
+      this.socket.emit("chat", body)
+      this.setState({
+        messages: [ ...this.state.messages, this.state.input],
+        input: ""})
 
-    const message = this.state.messages;
-    return (
-      <div className="App">
-        <Asside />
-        <Header />
-        <Main message={message} />
-        <Button />
-        <Footer />
-      </div>
-    );
+      event.target.value = "";
+    }
   }
+
+  handleClick = event => {
+    if (this.state.input) {
+    this.socket.emit("chat", this.state.input)
+      this.setState({
+        messages: [...this.state.messages, this.state.input],
+        input: ""})
+  }
+}
+
+  handleChange = event => {
+    this.setState({
+      input: event.target.value
+    })
+  }
+
+render() {
+
+
+  const message = this.state.messages;
+  return (
+    <div className="App">
+      <Asside />
+      <Header />
+      <Main message={message} />
+      <Button handleSubmit={this.handleSubmit} handleClick={this.handleClick} input={this.state.input} handleChange={this.handleChange}/>
+      <Footer />
+    </div>
+  );
+}
 }
 
 export default App;
