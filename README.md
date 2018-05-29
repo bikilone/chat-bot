@@ -1,3 +1,20 @@
+//// IMPORTANT ////
+
+To start this project you must first clone https://github.com/bikilone/chat-bot-backend
+
+When you clone this repository, cd chat-bot and run nodemon index
+
+This will setup mock up server with sockets
+
+Then, you can run this repository with npm start
+
+
+
+
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
