@@ -12,6 +12,7 @@
     clear: both;
     background-color: white;
     padding: 5px;
+    cursor: pointer;
     
 }
 .asside img:nth-child(2) {
