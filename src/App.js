@@ -4,6 +4,7 @@ import './App.css';
 import Header from "./Components/header";
 import Main from "./Components/main";
 import Button from './Components/button';
+import Footer from "./Components/footer";
 
 class App extends Component {
   render() {
@@ -12,6 +13,7 @@ class App extends Component {
           <Header/>
           <Main/>
           <Button/>
+          <Footer/>
       </div>
     );
   }
