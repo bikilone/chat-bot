@@ -3,12 +3,12 @@
     box-sizing: border-box;
     justify-content: stretch;
     flex: 1;
-    border: 3px solid blue;
+    border: 3px solid #3399ff;
 }
 
 .button img {
     flex: 1;
-    border-right: 1px solid blue;
+    border-right: 1px solid #3399ff;
     padding: 10px;
 
 }
@@ -16,7 +16,7 @@
 .button input {
     flex: 5;
     border: none;
-    border-right: 1px solid blue;
+    border-right: 1px solid #3399ff;
     font-size: 20px;
     padding: 0 0 5px 5px;
     min-width: 0px;
@@ -24,7 +24,7 @@
 }
 
 .button button {
-    background-color: blue;
+    background-color: #3399ff;
     color: white;
     font-size: 20px;
     flex: 2;
