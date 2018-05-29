@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import openSocket from 'socket.io-react';
 import openSocket from "socket.io-client";
 
 
@@ -10,7 +9,7 @@ import Button from './Components/button';
 import Footer from "./Components/footer";
 import Asside from "./Components/aside";
 
-const socketUrl = "https://git.heroku.com/react-test-task-back.git";
+
 
 
 
@@ -26,7 +25,15 @@ class App extends Component {
 
    socket = openSocket("http://localhost:4000");
 
+ 
+
+   updateScroll = () => {
+    const main = document.getElementsByClassName("main")[0];
+    main.scrollTop = main.scrollHeight;
+   }
+
    componentDidMount() {
+
 
       this.socket.on("connection", (data) => {
        this.setState({
@@ -57,15 +64,23 @@ class App extends Component {
 
       event.target.value = "";
     }
+    /// setting scroll
+    setTimeout(()=> {
+      this.updateScroll()
+    },0)
   }
-
+  
   handleClick = event => {
     if (this.state.input) {
-    this.socket.emit("chat", this.state.input)
+      this.socket.emit("chat", this.state.input)
       this.setState({
         messages: [...this.state.messages, this.state.input],
         input: ""})
-  }
+      }
+      /// setting scroll
+  setTimeout(()=> {
+    this.updateScroll()
+  },0)
 }
 
   handleChange = event => {
@@ -76,13 +91,13 @@ class App extends Component {
 
 render() {
 
-
+  
   const message = this.state.messages;
   return (
     <div className="App">
       <Asside />
       <Header />
-      <Main message={message} />
+      <Main message={message}/>
       <Button handleSubmit={this.handleSubmit} handleClick={this.handleClick} input={this.state.input} handleChange={this.handleChange}/>
       <Footer />
     </div>
