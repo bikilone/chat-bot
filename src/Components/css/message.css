@@ -1,0 +1,32 @@
+.message p {
+    border-radius: 10px;
+    background-color: blue;
+    color: white;
+    padding: 20px;
+    margin: 10px 10px 10px;
+}
+
+.message:nth-child(even) {
+    float: right;
+}
+
+.message:nth-child(odd) {
+    float: left;
+}
+
+.message {
+    clear: both;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 0 10px 10px;
+}
+
+.message img {
+    height: 40px;
+    width: 40px;    
+}
+
+.message:nth-child(odd) >img{
+    order: -1;
+}
